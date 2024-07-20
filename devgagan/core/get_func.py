@@ -40,6 +40,7 @@ async def get_msg(userbot, sender, edit_id, msg_link, i, message):
         try:
             chatx = message.chat.id
             msg = await userbot.get_messages(chat, msg_id)
+            caption = None
 
             if msg.service is not None:
                 return None 
@@ -297,7 +298,7 @@ async def copy_message_with_chat_id(client, sender, chat_id, message_id):
         for word, replace_word in replacements.items():
             final_caption = final_caption.replace(word, replace_word)
         
-        caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Team SPY](https://t.me/devggn)**__"
+        caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}"
         
         if msg.media:
             if msg.media == MessageMediaType.VIDEO:
